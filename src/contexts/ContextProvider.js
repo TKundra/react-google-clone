@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const StateContext = createContext();
 const BASE_URL = 'https://google-search3.p.rapidapi.com/api/v1';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const StateContextProvider = ({ children }) => {
     const [results, setResults] = useState([]);
@@ -18,7 +19,7 @@ export const StateContextProvider = ({ children }) => {
                 'x-user-agent': 'desktop',
                 'x-proxy-location': 'IN',
                 'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-                'x-rapidapi-key': 'b7c34feaf0msh16c6b54fb361da5p1ce7b7jsn9cf2eb5ed389'
+                'x-rapidapi-key': API_KEY
             }
         })
         .then((response) => setResults(response.data))
